@@ -1,5 +1,5 @@
 return {
-    'nvim-telescope/telescope.nvim',
+    'ravitharan/telescope.nvim',
     dependencies = {
         'nvim-lua/plenary.nvim',
     },
@@ -7,10 +7,11 @@ return {
         local actions = require('telescope.actions')
         require('telescope').setup({
             defaults = {
+                path_display = { 'truncate' },
                 mappings = {
                     i = {
-                        ["<C-k>"] = actions.move_selection_previous,                       -- move to prev result
-                        ["<C-j>"] = actions.move_selection_next,                           -- move to next result
+                        ["<C-k>"] = actions.move_selection_previous,  -- move to prev result
+                        ["<C-j>"] = actions.move_selection_next,      -- move to next result
                         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
                     }
                 }
@@ -22,6 +23,7 @@ return {
         vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
         vim.keymap.set('n', '<leader>sq', builtin.quickfix, {})
         vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
+        vim.keymap.set('n', '<leader>st', builtin.tags, { desc = '[S]earch [T]ags' })
         vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = 'Telescope buffers' })
 
         -- Rip grep + Fzf
@@ -44,5 +46,5 @@ return {
         vim.keymap.set('n', '<leader>si', function()
             builtin.find_files({ cwd = "~/.config/nvim/" });
         end)
-    end
+    end,
 }
