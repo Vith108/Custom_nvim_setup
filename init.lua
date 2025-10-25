@@ -2,7 +2,13 @@ require("config.options")
 require("config.keybinds")
 require("config.lazy")
 --Initalising legacy and search-parent
-vim.cmd.source("~/.config/nvim/lua/utils/legacy.vim")
+local legacy_file = "/lua/utils/legacy.vim"
+local config_path = "~/.config/nvim"
+local config_folder = os.getenv("NVIM_APPNAME")
+if config_folder then
+	config_path = "~/.config/" .. config_folder
+end
+vim.cmd.source(config_path .. legacy_file)
 
 vim.cmd([[
 :nnoremap <leader>w :SFiles "<C-R><C-W>"<CR>
