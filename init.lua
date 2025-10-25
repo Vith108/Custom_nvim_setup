@@ -1,7 +1,6 @@
 require("config.options")
 require("config.keybinds")
 require("config.lazy")
-
 --Initalising legacy and search-parent
 vim.cmd.source("~/.config/nvim/lua/utils/legacy.vim")
 
@@ -24,5 +23,4 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     command = "setlocal equalprg=yapf",
 })
-
 require("utils.search_parents")
