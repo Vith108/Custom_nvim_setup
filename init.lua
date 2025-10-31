@@ -6,7 +6,7 @@ local legacy_file = "/lua/utils/legacy.vim"
 local config_path = "~/.config/nvim"
 local config_folder = os.getenv("NVIM_APPNAME")
 if config_folder then
-	config_path = "~/.config/" .. config_folder
+    config_path = "~/.config/" .. config_folder
 end
 vim.cmd.source(config_path .. legacy_file)
 
@@ -29,4 +29,9 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     command = "setlocal equalprg=yapf",
 })
+
+if vim.opt.diff:get() then
+    vim.cmd.colorscheme("pablo")
+end
+
 require("utils.search_parents")
