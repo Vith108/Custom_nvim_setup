@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 if vim.opt.diff:get() then
-    vim.cmd.colorscheme("pablo")
+    vim.cmd.colorscheme("tokyonight")
+    vim.opt.fillchars:append("diff:/")
 end
-
 require("utils.search_parents")
