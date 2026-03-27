@@ -34,7 +34,7 @@ return {
                     hl["@keyword.import"]        = { fg = c.purple }
 
                     -- misc
-                    hl["@operator"]              = { fg = c.yellow }
+                    hl["@operator"]              = { link = "@punctuation.delimiter" }
                     hl["@decorator"]             = { fg = c.yellow }  -- python @decorator
                     hl["@attribute"]             = { fg = c.yellow }
 
