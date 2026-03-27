@@ -36,15 +36,6 @@ if vim.opt.diff:get() then
     vim.opt.fillchars:append("diff:/")
 end
 require("utils.search_parents")
-require 'nvim-treesitter'.setup {
-    -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
-    install_dir = vim.fn.stdpath('data') .. '/site'
-}
-require('nvim-treesitter').install({ 'c', 'python', 'systemverilog' }):wait(300000) -- wait max. 5 minutes
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'c' },
-    callback = function() vim.treesitter.start() end,
-})
 require("claude-code").setup({
     -- Terminal window settings
     window = {

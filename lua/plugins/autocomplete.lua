@@ -106,12 +106,12 @@ return {
             },
             handlers = {
                 function(server_name)
-                    if server_name == "luals" then return end  -- avoid starting with {}
+                    if server_name == "lua_ls" then return end  -- avoid starting with {}
                     require('lspconfig')[server_name].setup({})
                 end,
 
                 lua_ls = function()
-                    require('lspconfig').luals.setup({
+                    require('lspconfig').lua_ls.setup({
                         settings = {
                             Lua = {
                                 runtime = {
