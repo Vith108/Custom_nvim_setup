@@ -34,6 +34,8 @@ vim.api.nvim_create_autocmd("FileType", {
 if vim.opt.diff:get() then
     vim.cmd.colorscheme("tokyonight")
     vim.opt.fillchars:append("diff:/")
+    vim.api.nvim_set_hl(0, "DiffChange", { bg = "#2d1a3d", fg = "#cc88ff" })
+    vim.api.nvim_set_hl(0, "DiffText",   { bg = "#4d2d6e", fg = "#e0aaff", bold = true })
 end
 require("utils.search_parents")
 require("claude-code").setup({
